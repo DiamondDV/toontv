@@ -743,37 +743,7 @@
         </div>
     </header>
 
-    <!-- Floating Side Ads (Desktop Only) -->
-   <div class="ad-container sidebar-ad">
-            <div class="ad-label">Sponsored</div>
-            <div class="ad-content">
-             
-            </div>
-        </div><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2482229776638319"
-     crossorigin="anonymous"></script>
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-format="fluid"
-     data-ad-layout-key="+2t+rl+2h-1m-4u"
-     data-ad-client="ca-pub-2482229776638319"
-     data-ad-slot="3466775784"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-    </div>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2482229776638319"
-     crossorigin="anonymous"></script>
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-format="fluid"
-     data-ad-layout-key="+2t+rl+2h-1m-4u"
-     data-ad-client="ca-pub-2482229776638319"
-     data-ad-slot="3466775784"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-    </div>
+ 
 
     <!-- Main container -->
     <main class="container">
@@ -800,27 +770,16 @@
                 </div>
             </div>
             
-            <div class="video-container">
-                <video id="videoPlayer" controls preload="metadata">
-                    <source id="videoSource" src="" type="video/mp4">
-                   
-                </video>
-            </div>
+          
             
             <div class="playback-actions">
                 <div class="menu-container">
                     <button class="menu-button" onclick="toggleMenu()">
-                        ⋯ Options
+                        Download
                     </button>
                     <div class="menu-dropdown" id="menuDropdown">
                         <div class="menu-item" onclick="downloadCurrentEpisode()">
                             ⬇️ Download Episode
-                        </div>
-                        <div class="menu-item" onclick="shareEpisode()">
-                            📤 Share Episode
-                        </div>
-                        <div class="menu-item" onclick="reportIssue()">
-                            ⚠️ Report Issue
                         </div>
                     </div>
                 </div>
@@ -849,402 +808,389 @@
     </main>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
-    <script>
-        // Episode data - easily editable
-        const BASE_URL = "https://unsalvaged-unwelcomingly-stanley.ngrok-free.dev/";
-        const episodes = [
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+<script>
+    // Episode data - easily editable
+    const BASE_URL = "https://unsalvaged-unwelcomingly-stanley.ngrok-free.dev/";
+    const episodes = [
+        {
+            title: "School Hai Ya Bhoot Bangla?",
+            description: "Strange shadows lurk in the empty classrooms after dark...",
+            videoFile: "https://jumpshare.com/embed/V3uErbdkDCf9iSNSbYYM", // Playback link
+            downloadFile: "https://filemoon.in/d/3iwqm205bsh5/episode1" // <-- CHANGED: Add your actual download link here
+        },
+        {
+            title: "Dad Himawari Ke Liye Ek Doll Layenge",
+            description: "Shinchan's late-night kitchen adventure turns into a nightmare...",
+            videoFile: BASE_URL + "episode2.mp4", // Playback link
+            downloadFile: "https://filemoon.to/d/2qa9puawox3q/Dad_Himawari_Ke_Liye_Ek_Doll_Layenge" // <-- CHANGED: Add your actual download link here
+        },
+        {
+            title: "Aaj Mai Milunga Apne Hamshakal Se",
+            description: "His favorite superhero toy comes alive with sinister intentions...",
+            videoFile: BASE_URL + "episode3.mp4",
+            downloadFile: "https://filemoon.to/d/dem1boxo54wl/Aaj_Mai_Milunga_Apne_Hamshakal_Se" // <-- CHANGED: Add your actual download link here
+        },
+        {
+            title: "Aaj Hamare Beech Ye Naya Kon",
+            description: "Shinchan's art supplies develop a life of their own...",
+            videoFile: BASE_URL + "episode4.mp4",
+            downloadFile: "https://filemoon.to/d/iwwgkmpmdfu4/Aaj_Hamare_Beech_Ye_Naya_Kon" // <-- CHANGED: Add your actual download link here
+        },
+        {
+            title: "Nene Aur Uski Mom Ko Ek Sapna Aaya",
+            description: "A mysterious snack leads to terrifying hallucinations...",
+            videoFile: BASE_URL + "episode5.mp4",
+            downloadFile: "https://filemoon.to/d/9k3fqjbp4cla/Nene_Aur_Uski_Mom_Ko_Ek_Sapna_Aaya" // <-- CHANGED: Add your actual download link here
+        },
+        {
+            title: "Nene Ka Rabbit Kaha Gaya",
+            description: "Shinchan sees a dark figure following him everywhere he goes...",
+            videoFile: BASE_URL + "episode6.mp4",
+            downloadFile: "https://filemoon.to/d/o7lwf1delb3k/Nene_Ka_Rabbit_Kaha_Gaya  " // <-- CHANGED: Add your actual download link here
+        },
+        {
+            title: "Hume Ye DVD nahi Dekhni",
+            description: "Strange voices echo through Shinchan's house at night...",
+            videoFile: BASE_URL + "episode7.mp4",
+            downloadFile: "https://filemoon.to/d/ua2e8kvf0qa5/Hume_Ye_DVD_Nahi_Dekhni" // <-- CHANGED: Add your actual download link here
+        },
+        {
+            title: "Purnima Ki Raat Par Kya Hoga",
+            description: "Shinchan's best friend disappears under mysterious circumstances...",
+            videoFile: BASE_URL + "episode8.mp4",
+            downloadFile: "https://filemoon.to/d/trtksjayivhq/Purnima_Ki_Raat_Par_Kya_Hoga" // <-- CHANGED: Add your actual download link here
+        },
+        {
+            title: "Aaj Barsaat Rukh Hi Nahi Rahi",
+            description: "Shinchan encounters ghostly children playing after dark...",
+            videoFile: BASE_URL + "episode9.mp4",
+            downloadFile: "https://filemoon.to/d/r5jrtmhyg900/Aaj_Barsaat_Rukh_Hi_Nahi_Rahi" // <-- CHANGED: Add your actual download link here
+        },
+        {
+            title: "Kahani Rehasemey Sidiyo Ki",
+            description: "Shinchan's pet dog starts acting strangely, leading to eerie events...",
+            videoFile: BASE_URL + "episode10.mp4",
+            downloadFile: "https://filemoon.to/d/mdbxf89cv6ao/Kahani_Rehasemey_Sidiyo_Ki" // <-- CHANGED: Add your actual download link here
+        },
+        {
+            title: "Aaj Hum Milenge Chand Ki Rajkumari Se",
+            description: "A sinister clown appears in Shinchan's dreams and reality...",
+            videoFile: BASE_URL + "episode11.mp4",  
+            downloadFile: "https://filemoon.to/d/qkutpk9f10wz/Aaj_Hum_Milenge_Chand_Ki_Rajkumari_Se.mp4" // <-- CHANGED: Add your actual download link here
+        },  
+        {
+            title: "Naye Park Ka Rahasya",
+            description: "Shinchan gets trapped in an elevator that takes him to unknown places...",
+            videoFile: BASE_URL + "episode12.mp4",
+            downloadFile: "https://filemoon.to/d/459ybjqiudjm/Naye_Park_Ka_Rahasya.mp4" // <-- CHANGED: Add your actual download link here
+        },
+        {
+            title: "Ek Bohot Hi Ajeeb Resteraunt",
+            description: "Shinchan's art supplies develop a life of their own...",
+            videoFile: BASE_URL + "episode13.mp4",
+            downloadFile: "https://filemoon.to/d/fjh43rf8i2vh/Ek_Bohot_Hi_Ajeeb_Resteraunt.mp4" // <-- CHANGED: Add your actual download link here
+        },
+        {
+            title: "Horror Gachapons",
+            description: "More episodes coming soon! Stay tuned for more horror adventures.",
+            videoFile: BASE_URL + "episode14.mp4",
+            downloadFile: "https://filemoon.to/d/3v3560tlqib8/Horror_Gachapons.mp4" // <-- CHANGED: Add your actual download link here
+        },
+                {
+            title: "Khargosh Ka Rahasya",
+            description: "More episodes coming soon! Stay tuned for more horror adventures.",
+            videoFile: BASE_URL + "episode14.mp4",
+            downloadFile: "https://filemoon.to/d/02j5m7sh08kz/Khargosh_Ka_Rahasya.mp4" // <-- CHANGED: Add your actual download link here
+        },
+                {
+            title: "Aaj Khelenge Hum Ek Rehasyame Game",
+            description: "More episodes coming soon! Stay tuned for more horror adventures.",
+            videoFile: BASE_URL + "episode14.mp4",
+            downloadFile: "https://filemoon.to/d/34usot1kkmvf/Aaj_Khelenge_Hum_Ek_Rehasyame_Game.mp4" // <-- CHANGED: Add your actual download link here
+        },
+                {
+            title: "Aaj Seceratory App Keregi Pareshan",
+            description: "More episodes coming soon! Stay tuned for more horror adventures.",
+            videoFile: BASE_URL + "episode14.mp4",
+            downloadFile: "https://filemoon.to/d/gaa46gt20ibs/Aaj_Seceratory_App_Keregi_Pareshan.mp4" // <-- CHANGED: Add your actual download link here
+        },
+                {
+            title: "Ajeeb Daravni Line",
+            description: "More episodes coming soon! Stay tuned for more horror adventures.",
+            videoFile: BASE_URL + "episode14.mp4",
+            downloadFile: "https://filemoon.to/d/j02b87o24kz4/Ajeeb_Daravni_Line.mp4" // <-- CHANGED: Add your actual download link here
+        },
             {
-                title: "The Haunted Kindergarten",
-                description: "Strange shadows lurk in the empty classrooms after dark...",
-                videoFile: BASE_URL + "episode1.mp4" // Single file for both playback and download
-            },
-            {
-                title: "Mysterious Ladder",
-                description: "Shinchan's late-night kitchen adventure turns into a nightmare...",
-                videoFile: BASE_URL + "episode2.mp4"
-            },
-            {
-                title: "The Horror Doll",
-                description: "His favorite superhero toy comes alive with sinister intentions...",
-                videoFile: BASE_URL + "episode3.mp4"
-            },
-            {
-                title: "Naye Park ka Rehsaya",
-                description: "A broken elevator takes the family to floors that shouldn't exist...",
-                videoFile: BASE_URL + "episode4.mp4"
-            },
-            {
-                title: "Shinchan Horror Secretory App",
-                description: "Himawari's innocent doll harbors a dark secret...",
-                videoFile: BASE_URL + "episode5.mp4"
-            },
-            {
-                title: "Summer jo socha tha savana ban gaya daravna",
-                description: "Reflections start moving independently in the Nohara household...",
-                videoFile: BASE_URL + "episode6.mp4"
-            },
-            {
-                title: "Hum mphas gaye dupplicate doll ke jaal me",
-                description: "A mysterious bus appears at the stop, but where does it go?",
-                videoFile: BASE_URL + "episode7.mp4"
-            },
-            {
-                title: "Nene ka rabbit kaha gaya",
-                description: "Kazama's sleepover party becomes a fight for survival...",
-                videoFile: BASE_URL + "episode8.mp4"
-            },
-            {
-                title: "Chuttiya manaenge naye dost banaenge",
-                description: "The apartment walls start speaking in hushed, terrifying voices...",
-                videoFile: BASE_URL + "episode9.mp4"
-            },
-            {
-                title: "Ho raha hai drama kon hai asli kazama",
-                description: "Shinchan's shadow puppets cast shadows of their own...",
-                videoFile: BASE_URL + "episode10.mp4"
-            },
-            {
-                title: "Aaj seceratory app karegi pareshan",
-                description: "Children disappear one by one from the local playground...",
-                videoFile: BASE_URL + "episode11.mp4"
-            },
-            {
-                title: "Purnima ki raat par kya hoga",
-                description: "Uninvited guests join the family for their evening meal...",
-                videoFile: BASE_URL + "episode12.mp4"
-            },
-            {
-                title: "Aaj hum millenge shinko chan se",
-                description: "Shinchan's art supplies develop a life of their own...",
-                videoFile: BASE_URL + "episode13.mp4"
-            },
-            {
-                title: "Still finding...",
-                description: "More episodes coming soon! Stay tuned for more horror adventures.",
-                videoFile: BASE_URL + "episode14.mp4"
-            },
-            {
-                title: "Still finding...",
-                description: "More episodes coming soon! Stay tuned for more horror adventures.",
-                videoFile: BASE_URL + "episode15.mp4"
-            },
-            {
-                title: "Still finding...",
-                description: "More episodes coming soon! Stay tuned for more horror adventures.",
-                videoFile: BASE_URL + "episode16.mp4"
-            },
-            {
-                title: "Still finding...",
-                description: "More episodes coming soon! Stay tuned for more horror adventures.",
-                videoFile: BASE_URL + "episode17.mp4"
-            },
-            {
-                title: "Still finding...",
-                description: "More episodes coming soon! Stay tuned for more horror adventures.",
-                videoFile: BASE_URL + "episode18.mp4"
-            },
-            {
-                title: "Still finding...",
-                description: "More episodes coming soon! Stay tuned for more horror adventures.",
-                videoFile: BASE_URL + "episode19.mp4"
-            },
-            {
-                title: "Still finding...",
-                description: "More episodes coming soon! Stay tuned for more horror adventures.",
-                videoFile: BASE_URL + "episode20.mp4"
-            },
-            {
-                title: "Still finding...",
-                description: "More episodes coming soon! Stay tuned for more horror adventures.",
-                videoFile: BASE_URL + "episode21.mp4"
-            },
-            {
-                title: "Still finding...",
-                description: "More episodes coming soon! Stay tuned for more horror adventures.",
-                videoFile: BASE_URL + "episode22.mp4"
-            },
-            {
-                title: "Still finding...",
-                description: "More episodes coming soon! Stay tuned for more horror adventures.",
-                videoFile: BASE_URL + "episode23.mp4"
-            },
-            {
-                title: "Still finding...",
-                description: "More episodes coming soon! Stay tuned for more horror adventures.",
-                videoFile: BASE_URL + "episode24.mp4"
-            },
-            {
-                title: "Still finding...",
-                description: "More episodes coming soon! Stay tuned for more horror adventures.",
-                videoFile: BASE_URL + "episode25.mp4"
-            },
-            {
-                title: "Still finding...",
-                description: "More episodes coming soon! Stay tuned for more horror adventures.",
-                videoFile: BASE_URL + "episode26.mp4"
-            },
-            {
-                title: "Still finding...",
-                description: "More episodes coming soon! Stay tuned for more horror adventures.",
-                videoFile: BASE_URL + "episode27.mp4"
-            },
-            {
-                title: "Still finding...",
-                description: "More episodes coming soon! Stay tuned for more horror adventures.",
-                videoFile: BASE_URL + "episode28.mp4"
-            },
-            {
-                title: "Still finding...",
-                description: "More episodes coming soon! Stay tuned for more horror adventures.",
-                videoFile: BASE_URL + "episode29.mp4"
-            },
-            {
-                title: "Still finding...",
-                description: "More episodes coming soon! Stay tuned for more horror adventures.",
-                videoFile: BASE_URL + "episode30.mp4"
-            }
-        ];
+            title: "Kazama Lift Me Phas Gaya",
+            description: "More episodes coming soon! Stay tuned for more horror adventures.",
+            videoFile: BASE_URL + "episode14.mp4",
+            downloadFile: "https://filemoon.to/d/7l9p5olgevhg/Kazama_Lift_Me_Phas_Gaya.mp4" // <-- CHANGED: Add your actual download link here
+        },
+                {
+            title: "Taxi Driver Shinchan",
+            description: "More episodes coming soon! Stay tuned for more horror adventures.",
+            videoFile: BASE_URL + "episode14.mp4",
+            downloadFile: "https://filemoon.to/d/hep6znxc9mph/Taxi_Driver_Shinchan.mp4" // <-- CHANGED: Add your actual download link here
+        },
+                {
+            title: "Kazama Mera Peecha Chodna Hi Nahi Cahata",
+            description: "More episodes coming soon! Stay tuned for more horror adventures.",
+            videoFile: BASE_URL + "episode14.mp4",
+            downloadFile: "https://filemoon.to/d/wrtxtaydate7/Kazama_Mera_Peecha_Chodna_Hi_Nahi_Cahata.mp4" // <-- CHANGED: Add your actual download link here
+        },
+                {
+            title: "Chuttiya Manayenge Naye Dost Banayenge",
+            description: "More episodes coming soon! Stay tuned for more horror adventures.",
+            videoFile: BASE_URL + "episode14.mp4",
+            downloadFile: "https://filemoon.to/d/0m9entee2xy0/Chuttiya_Manayenge_Naye_Dost_Banayenge.mp4" // <-- CHANGED: Add your actual download link here
+        },
+                {
+            title: "Safar Jo Socha Tha Savana Ban Gaya Daravna",
+            description: "More episodes coming soon! Stay tuned for more horror adventures.",
+            videoFile: BASE_URL + "episode14.mp4",
+            downloadFile: "https://filemoon.to/d/3fnvhlj27m9q/Safar_Jo_Socha_Tha_Savana_Ban_Gaya_Daravna.mp4" // <-- CHANGED: Add your actual download link here
+        },
+                {
+            title: "Fan Ban Gaya Shaitaan",
+            description: "More episodes coming soon! Stay tuned for more horror adventures.",
+            videoFile: BASE_URL + "episode14.mp4",
+            downloadFile: "https://filemoon.to/d/lu0duob26n19/Fan_Ban_Gaya_Shaitaan.mp4" // <-- CHANGED: Add your actual download link here
+        },
+                {
+            title: "Ho Raha Hai Drama Kon Hai Alsi Kazama",
+            description: "More episodes coming soon! Stay tuned for more horror adventures.",
+            videoFile: BASE_URL + "episode14.mp4",
+            downloadFile: "https://filemoon.to/d/xeec8jspblat/Ho_Raha_Hai_Drama_Kon_Hai_Alsi_Kazama.mp4" // <-- CHANGED: Add your actual download link here
+        },
+                {
+            title: "Hum Phas Gaye Dupplicate Doll Ke Jaal Mein",
+            description: "More episodes coming soon! Stay tuned for more horror adventures.",
+            videoFile: BASE_URL + "episode29.mp4",
+            downloadFile: "https://filemoon.to/d/ndw5dq0g6hio/Hum_Phas_Gaye_Dupplicate_Doll_Ke_Jaal_Mein.mp4" // <-- CHANGED: Add your actual download link here
+        },
+    ];
 
-        // Generate episode cards with ads
-        function generateEpisodes() {
-            const grid = document.getElementById('episodesGrid');
-            
-            episodes.forEach((episode, index) => {
-                // Add ads after every 6 episodes
-                if (index > 0 && index % 6 === 0) {
-                    const adContainer = document.createElement('div');
-                    adContainer.className = 'ad-container';
-                    adContainer.innerHTML = `
-                        <div class="ad-label">Advertisement</div>
-                        <div class="ad-content banner-ad">
-                            In-Content Banner Ad (728x90)
-                        </div>
-                    `;
-                    grid.appendChild(adContainer);
-                }
+    // Generate episode cards with ads
+    function generateEpisodes() {
+        const grid = document.getElementById('episodesGrid');
 
-                // Add native ads after every 12 episodes
-                if (index > 0 && index % 12 === 0) {
-                    const nativeAd = document.createElement('div');
-                    nativeAd.className = 'native-ad';
-                    nativeAd.style.gridColumn = '1 / -1';
-                    nativeAd.innerHTML = `
-                        <div class="native-ad-title">Sponsored Content</div>
-                        <div class="native-ad-content">
-                            <div class="native-ad-image">👻</div>
-                            <div class="native-ad-text">
-                                <div class="native-ad-headline">Explore More Horror Series</div>
-                                <div class="native-ad-description">Check out our partner's collection of spine-tingling horror content and exclusive episodes.</div>
-                            </div>
-                        </div>
-                    `;
-                    grid.appendChild(nativeAd);
-                }
-
-                const card = document.createElement('div');
-                card.className = 'episode-card';
-                card.innerHTML = `
-                    <div class="episode-number">${index + 1}</div>
-                    <h3 class="episode-title">${episode.title}</h3>
-                    <p class="episode-description">${episode.description}</p>
-                    <div class="episode-actions">
-                        <button class="btn btn-play" onclick="playEpisode('${episode.videoFile}', '${episode.title}', ${index + 1})">
-                            ▶️ Watch Now
-                        </button>
+        episodes.forEach((episode, index) => {
+            // ... (ad logic remains the same) ...
+            if (index > 0 && index % 6 === 0) {
+                const adContainer = document.createElement('div');
+                adContainer.className = 'ad-container';
+                adContainer.innerHTML = `
+                    <div class="ad-label">Advertisement</div>
+                    <div class="ad-content banner-ad">
+                        In-Content Banner Ad (728x90)
                     </div>
                 `;
-                grid.appendChild(card);
-            });
+                grid.appendChild(adContainer);
+            }
 
-            // Add a final square ad at the end
-            const finalAd = document.createElement('div');
-            finalAd.className = 'ad-container';
-            finalAd.innerHTML = `
-                <div class="ad-label">Advertisement</div>
-                <div class="ad-content square-ad">
-                    300x250 Square Ad
+  
+
+            const card = document.createElement('div');
+            card.className = 'episode-card';
+            
+            // Ensure downloadFile exists, even if it's the same as videoFile, to prevent errors
+            const downloadLink = episode.downloadFile || episode.videoFile; // <-- CHANGED: Fallback
+            
+            card.innerHTML = `
+                <div class="episode-number">${index + 1}</div>
+                <h3 class="episode-title">${episode.title}</h3>
+                <p class="episode-description">${episode.description}</p>
+                <div class="episode-actions">
+                    <button class="btn btn-play" onclick="playEpisode('${episode.videoFile}', '${downloadLink}', '${episode.title}', ${index + 1})">
+                        ▶️ Watch Now
+                    </button>
                 </div>
             `;
-            grid.appendChild(finalAd);
-        }
-
-        // Current episode data
-        let currentEpisodeData = null;
-
-        // Play episode function
-        function playEpisode(videoFile, title, episodeNumber) {
-            // Store current episode data
-            currentEpisodeData = {
-                videoFile: videoFile,
-                title: title,
-                episodeNumber: episodeNumber
-            };
-
-            // Hide episodes grid and show playback
-            document.getElementById('episodesGrid').style.display = 'none';
-            document.getElementById('playbackContainer').style.display = 'block';
-
-            // Update playback UI
-            document.getElementById('currentEpisodeNumber').textContent = `Episode ${episodeNumber}`;
-            document.getElementById('currentEpisodeTitle').textContent = title;
-            
-            // Set video source
-            const videoPlayer = document.getElementById('videoPlayer');
-            const videoSource = document.getElementById('videoSource');
-            videoSource.src = videoFile;
-            videoPlayer.load();
-
-            // Scroll to top
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // Go back to episodes grid
-        function goBackToGrid() {
-            document.getElementById('playbackContainer').style.display = 'none';
-            document.getElementById('episodesGrid').style.display = 'grid';
-            
-            // Pause video
-            const videoPlayer = document.getElementById('videoPlayer');
-            videoPlayer.pause();
-            
-            // Scroll to top
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // Menu toggle function
-        function toggleMenu() {
-            const dropdown = document.getElementById('menuDropdown');
-            dropdown.classList.toggle('show');
-        }
-
-        // Close menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const menuContainer = document.querySelector('.menu-container');
-            const dropdown = document.getElementById('menuDropdown');
-            
-            if (menuContainer && !menuContainer.contains(event.target)) {
-                dropdown.classList.remove('show');
-            }
+            grid.appendChild(card);
         });
 
-        // Download current episode function
-        function downloadCurrentEpisode() {
-            // Close menu
-            document.getElementById('menuDropdown').classList.remove('show');
-            
-            if (!currentEpisodeData) {
-                showNotification('No episode selected for download.', 'error');
-                return;
-            }
-
-            try {
-                // Create a temporary anchor element for download
-                const link = document.createElement('a');
-                link.href = currentEpisodeData.videoFile;
-                link.download = `${currentEpisodeData.title.replace(/[^a-z0-9]/gi, '_').toLowerCase()}_episode_${currentEpisodeData.episodeNumber}.mp4`;
-                link.style.display = 'none';
-                
-                // Add to DOM, click, and remove
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-                
-                showNotification(`Downloading ${currentEpisodeData.title}...`, 'success');
-            } catch (error) {
-                showNotification(`Error: ${error.message}`, 'error');
-            }
-        }
-
-        // Share episode function
-        function shareEpisode() {
-            // Close menu
-            document.getElementById('menuDropdown').classList.remove('show');
-            
-            if (!currentEpisodeData) {
-                showNotification('No episode selected to share.', 'error');
-                return;
-            }
-
-            // Copy episode info to clipboard
-            const shareText = `Check out this Shinchan Horror Episode: "${currentEpisodeData.title}" - Episode ${currentEpisodeData.episodeNumber}`;
-            
-            if (navigator.clipboard) {
-                navigator.clipboard.writeText(shareText).then(() => {
-                    showNotification('Episode info copied to clipboard!', 'success');
-                });
-            } else {
-                showNotification('Sharing not supported on this device.', 'error');
-            }
-        }
-
-        // Report issue function
-        function reportIssue() {
-            // Close menu
-            document.getElementById('menuDropdown').classList.remove('show');
-            
-            if (!currentEpisodeData) {
-                showNotification('No episode selected to report.', 'error');
-                return;
-            }
-
-            showNotification(`Issue reported for Episode ${currentEpisodeData.episodeNumber}. Thank you for your feedback!`, 'success');
-        }
-
-        // Custom notification system
-        function showNotification(message, type = 'info') {
-            const notification = document.createElement('div');
-            notification.style.cssText = `
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                background: rgba(0, 0, 0, 0.9);
-                backdrop-filter: blur(20px);
-                color: white;
-                padding: 20px;
-                border-radius: 12px;
-                border: 1px solid ${type === 'error' ? '#ff6b6b' : type === 'success' ? '#4ade80' : '#60a5fa'};
-                z-index: 1000;
-                max-width: 300px;
-                font-size: 14px;
-                line-height: 1.4;
-                animation: slideIn 0.3s ease-out;
-            `;
-            
-            notification.textContent = message;
-            document.body.appendChild(notification);
-            
-            setTimeout(() => {
-                notification.style.animation = 'slideOut 0.3s ease-out forwards';
-                setTimeout(() => notification.remove(), 300);
-            }, 5000);
-        }
-
-        // Add notification animations
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes slideIn {
-                from { transform: translateX(100%); opacity: 0; }
-                to { transform: translateX(0); opacity: 1; }
-            }
-            @keyframes slideOut {
-                from { transform: translateX(0); opacity: 1; }
-                to { transform: translateX(100%); opacity: 0; }
-            }
+        // ... (final ad logic remains the same) ...
+        const finalAd = document.createElement('div');
+        finalAd.className = 'ad-container';
+        finalAd.innerHTML = `
+            <div class="ad-label">Advertisement</div>
+            <div class="ad-content square-ad">
+                300x250 Square Ad
+            </div>
         `;
-        document.head.appendChild(style);
+        grid.appendChild(finalAd);
+    }
 
-        // Initialize the page
-        document.addEventListener('DOMContentLoaded', generateEpisodes);
-    </script>
+    // Current episode data
+    let currentEpisodeData = null;
+
+    // Play episode function
+    // <-- CHANGED: Added 'downloadFile' parameter
+    function playEpisode(videoFile, downloadFile, title, episodeNumber) {
+        // Store current episode data
+        currentEpisodeData = {
+            videoFile: videoFile,         // Link for playback
+            downloadFile: downloadFile,   // <-- CHANGED: Store the separate download link
+            title: title,
+            episodeNumber: episodeNumber
+        };
+
+        // Hide episodes grid and show playback
+        document.getElementById('episodesGrid').style.display = 'none';
+        document.getElementById('playbackContainer').style.display = 'block';
+
+        // Update playback UI
+        document.getElementById('currentEpisodeNumber').textContent = `Episode ${episodeNumber}`;
+        document.getElementById('currentEpisodeTitle').textContent = title;
+
+        // Set video source (uses the videoFile for playback)
+        const videoPlayer = document.getElementById('videoPlayer');
+        const videoSource = document.getElementById('videoSource');
+        videoSource.src = videoFile;
+        videoPlayer.load();
+
+        // Scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Go back to episodes grid
+    function goBackToGrid() {
+        document.getElementById('playbackContainer').style.display = 'none';
+        document.getElementById('episodesGrid').style.display = 'grid';
+
+        // Pause video
+        const videoPlayer = document.getElementById('videoPlayer');
+        videoPlayer.pause();
+
+        // Scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Menu toggle function
+    function toggleMenu() {
+        const dropdown = document.getElementById('menuDropdown');
+        dropdown.classList.toggle('show');
+    }
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+        const menuContainer = document.querySelector('.menu-container');
+        const dropdown = document.getElementById('menuDropdown');
+
+        if (menuContainer && !menuContainer.contains(event.target)) {
+            dropdown.classList.remove('show');
+        }
+    });
+
+    // Download current episode function
+    function downloadCurrentEpisode() {
+        // Close menu
+        document.getElementById('menuDropdown').classList.remove('show');
+
+        // <-- CHANGED: Check for 'downloadFile' property
+        if (!currentEpisodeData || !currentEpisodeData.downloadFile) {
+            showNotification('No episode or download link selected.', 'error');
+            return;
+        }
+
+        try {
+            // Create a temporary anchor element for download
+            const link = document.createElement('a');
+            link.href = currentEpisodeData.downloadFile; // <-- CHANGED: Use the download link
+            link.download = `${currentEpisodeData.title.replace(/[^a-z0-9]/gi, '_').toLowerCase()}_episode_${currentEpisodeData.episodeNumber}.mp4`;
+            link.style.display = 'none';
+
+            // Add to DOM, click, and remove
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            showNotification(`Downloading ${currentEpisodeData.title}...`, 'success');
+        } catch (error) {
+            showNotification(`Error: ${error.message}`, 'error');
+        }
+    }
+
+    // Share episode function
+    function shareEpisode() {
+        // Close menu
+        document.getElementById('menuDropdown').classList.remove('show');
+
+        if (!currentEpisodeData) {
+            showNotification('No episode selected to share.', 'error');
+            return;
+        }
+
+        // Copy episode info to clipboard
+        const shareText = `Check out this Shinchan Horror Episode: "${currentEpisodeData.title}" - Episode ${currentEpisodeData.episodeNumber}`;
+
+        if (navigator.clipboard) {
+            navigator.clipboard.writeText(shareText).then(() => {
+                showNotification('Episode info copied to clipboard!', 'success');
+            });
+        } else {
+            showNotification('Sharing not supported on this device.', 'error');
+        }
+    }
+
+    // Report issue function
+    function reportIssue() {
+        // Close menu
+        document.getElementById('menuDropdown').classList.remove('show');
+
+        if (!currentEpisodeData) {
+            showNotification('No episode selected to report.', 'error');
+            return;
+        }
+
+        showNotification(`Issue reported for Episode ${currentEpisodeData.episodeNumber}. Thank you for your feedback!`, 'success');
+    }
+
+    // ... (showNotification function and styles remain the same) ...
+    function showNotification(message, type = 'info') {
+        const notification = document.createElement('div');
+        notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(20px);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid ${type === 'error' ? '#ff6b6b' : type === 'success' ? '#4ade80' : '#60a5fa'};
+            z-index: 1000;
+            max-width: 300px;
+            font-size: 14px;
+            line-height: 1.4;
+            animation: slideIn 0.3s ease-out;
+        `;
+        
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease-out forwards';
+            setTimeout(() => notification.remove(), 300);
+        }, 5000);
+    }
+
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes slideOut {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
+        }
+    `;
+    document.head.appendChild(style);
+
+    // Initialize the page
+    document.addEventListener('DOMContentLoaded', generateEpisodes);
+</script>
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9936ea7bb0ccbcff',t:'MTc2MTI4MjA4My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
-
-
-
-
-
-
-
-
-
