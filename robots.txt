@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://toontv.qzz.io/sitemap.xml
