@@ -196,7 +196,7 @@
         body {
             box-sizing: border-box;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
@@ -485,11 +485,29 @@
         }
 
         /* Ad container styles */
+        .ad-container {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 20px;
+            margin: 30px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
 
-
-   
-
-      
+        .ad-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.02) 0%, rgba(147, 51, 234, 0.01) 100%);
+            border-radius: 15px;
+            pointer-events: none;
+        }
 
         .ad-label {
             font-size: 0.7rem;
@@ -501,6 +519,7 @@
             z-index: 2;
         }
 
+        .ad-content {
         . {
             min-height: 90px;
             display: flex;
@@ -569,7 +588,12 @@
             }
         }
 
-      
+        /* In-content ads between episodes */
+        .episodes-grid .ad-container {
+            grid-column: 1 / -1;
+            margin: 20px 0;
+        }
+
         /* Playback page ads */
         .pre-video-ad {
             margin-bottom: 20px;
@@ -596,6 +620,7 @@
             letter-spacing: 0.5px;
         }
 
+        .native-ad-content {
         .native- {
             display: flex;
             align-items: center;
@@ -637,11 +662,11 @@
                 grid-template-columns: 1fr;
                 gap: 20px;
             }
-            
+
             .header {
                 padding: 40px 20px;
             }
-            
+
             .episode-card {
                 padding: 20px;
             }
@@ -893,15 +918,31 @@
     <header class="header">
         <h1>🎭 Shinchan Horror Episodes</h1>
         <p>Enter the dark world of Crayon Shin-chan's most terrifying adventures</p>
-        
+
         <!-- Header Ad Banner -->
         <!-- Header Ad Banner -->
+<div class="ad-container header-ad">
+  <div class="ad-label">Advertisement</div>
+  <div class="ad-content banner-ad">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2482229776638319"
+      crossorigin="anonymous"></script>
+
+    <ins class="adsbygoogle"
+      style="display:inline-block;width:728px;height:90px"
+      data-ad-client="ca-pub-2482229776638319"
+      data-ad-slot="3451475674"></ins>
+
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+</div>
 
 
         </div>
     </header>
 
- 
+
 
     <!-- Main container -->
     <main class="container">
@@ -919,11 +960,18 @@
                     <h2 class="current-episode-title" id="currentEpisodeTitle"></h2>
                 </div>
             </div>
-            
+
+            <!-- Pre-Video Ad -->
+            <div class="ad-container pre-video-ad">
+                <div class="ad-label">Advertisement</div>
+                <div class="ad-content video-ad">
+                   
+                </div>
+            </div>
            
-            
-          
-            
+
+
+
             <div class="playback-actions">
                 <div class="menu-container">
                     <button class="menu-button" onclick="toggleMenu()">
@@ -936,8 +984,27 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Post-Video Ad -->
+            <div class="ad-container post-video-ad">
+                <div class="ad-label">Advertisement</div>
+                <div class="ad-content video-ad">
+                  
+                </div>
+            </div>
+            
+            <!-- Native Ad -->
+            <div class="native-ad">
+                <div class="native-ad-title">Recommended</div>
+                <div class="native-ad-content">
+                    <div class="native-ad-image">🎬</div>
+                    <div class="native-ad-text">
+                        <div class="native-ad-headline">More Horror Content You'll Love</div>
+                        <div class="native-ad-description">Discover spine-chilling episodes and exclusive content from our partners.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
            
            
     </main>
@@ -1100,15 +1167,33 @@
         },
     ];
 
-   
-  
+    // Generate episode cards with ads
+    function generateEpisodes() {
+        const grid = document.getElementById('episodesGrid');
+
+        episodes.forEach((episode, index) => {
+            // ... (ad logic remains the same) ...
+            if (index > 0 && index % 6 === 0) {
+                const adContainer = document.createElement('div');
+                adContainer.className = 'ad-container';
+                adContainer.innerHTML = `
+                    <div class="ad-label">Advertisement</div>
+                    <div class="ad-content banner-ad">
+                    <div class=" banner-ad">
+                        In-Content Banner Ad (728x90)
+                    </div>
+                `;
+                grid.appendChild(adContainer);
+            }
+
+
 
             const card = document.createElement('div');
             card.className = 'episode-card';
-            
+
             // Ensure downloadFile exists, even if it's the same as videoFile, to prevent errors
             const downloadLink = episode.downloadFile || episode.videoFile; // <-- CHANGED: Fallback
-            
+
             card.innerHTML = `
                 <div class="episode-number">${index + 1}</div>
                 <h3 class="episode-title">${episode.title}</h3>
@@ -1122,7 +1207,18 @@
             grid.appendChild(card);
         });
 
-        
+        // ... (final ad logic remains the same) ...
+        const finalAd = document.createElement('div');
+        finalAd.className = 'ad-container';
+        finalAd.innerHTML = `
+            <div class="ad-label">Advertisement</div>
+            <div class="ad-content square-ad">
+            <div class=" square-ad">
+                300x250 Square Ad
+            </div>
+        `;
+        grid.appendChild(finalAd);
+    }
 
     // Current episode data
     let currentEpisodeData = null;
@@ -1268,10 +1364,10 @@
             line-height: 1.4;
             animation: slideIn 0.3s ease-out;
         `;
-        
+
         notification.textContent = message;
         document.body.appendChild(notification);
-        
+
         setTimeout(() => {
             notification.style.animation = 'slideOut 0.3s ease-out forwards';
             setTimeout(() => notification.remove(), 300);
@@ -1296,9 +1392,6 @@
 </script>
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9936ea7bb0ccbcff',t:'MTc2MTI4MjA4My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
-
-
-
 
 
 
