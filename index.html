@@ -485,29 +485,11 @@
         }
 
         /* Ad container styles */
-        .ad-container {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(15px);
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 20px;
-            margin: 30px 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
 
-        .ad-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.02) 0%, rgba(147, 51, 234, 0.01) 100%);
-            border-radius: 15px;
-            pointer-events: none;
-        }
+
+   
+
+      
 
         .ad-label {
             font-size: 0.7rem;
@@ -587,12 +569,7 @@
             }
         }
 
-        /* In-content ads between episodes */
-        .episodes-grid .ad-container {
-            grid-column: 1 / -1;
-            margin: 20px 0;
-        }
-
+      
         /* Playback page ads */
         .pre-video-ad {
             margin-bottom: 20px;
@@ -1123,24 +1100,7 @@
         },
     ];
 
-    // Generate episode cards with ads
-    function generateEpisodes() {
-        const grid = document.getElementById('episodesGrid');
-
-        episodes.forEach((episode, index) => {
-            // ... (ad logic remains the same) ...
-            if (index > 0 && index % 6 === 0) {
-                const adContainer = document.createElement('div');
-                adContainer.className = 'ad-container';
-                adContainer.innerHTML = `
-                    <div class="ad-label">Advertisement</div>
-                    <div class=" banner-ad">
-                        In-Content Banner Ad (728x90)
-                    </div>
-                `;
-                grid.appendChild(adContainer);
-            }
-
+   
   
 
             const card = document.createElement('div');
@@ -1162,17 +1122,7 @@
             grid.appendChild(card);
         });
 
-        // ... (final ad logic remains the same) ...
-        const finalAd = document.createElement('div');
-        finalAd.className = 'ad-container';
-        finalAd.innerHTML = `
-            <div class="ad-label">Advertisement</div>
-            <div class=" square-ad">
-                300x250 Square Ad
-            </div>
-        `;
-        grid.appendChild(finalAd);
-    }
+        
 
     // Current episode data
     let currentEpisodeData = null;
@@ -1346,6 +1296,7 @@
 </script>
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9936ea7bb0ccbcff',t:'MTc2MTI4MjA4My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
+
 
 
 
